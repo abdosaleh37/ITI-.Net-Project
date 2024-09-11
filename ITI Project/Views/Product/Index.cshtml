@@ -1,0 +1,44 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+
+@model IEnumerable<Product>
+
+@{
+}
+<a asp-controller="Category" asp-action="Index" class="btn btn-success m-3">Go To Categories</a>
+<a asp-controller="Product" asp-action="Create" class="btn btn-success m-3">Add Product</a>
+    <h1>Products List</h1>
+    <table class="table text-center">
+        <thead>
+            <tr>
+                <th scope="col">Product Id</th>
+                <th scope="col">Title</th>
+                <th scope="col">Price</th>
+                <th scope="col">Description</th>
+                <th scope="col">Quantity</th>
+                <th scope="col">Image</th>
+                <th scope="col">Category Name</th>
+                <th scope="col">Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <th scope="col">@item.ProductId</th>
+                    <th scope="col">@item.Title</th>
+                    <th scope="col">@item.Price</th>
+                    <th scope="col">@item.Description</th>
+                    <th scope="col">@item.Quantity</th>
+                    <th scope="col"><img src=@item.ImagePath alt="No Image Found"></th>
+                    <th scope="col">@item.Category.Name</th>
+                    <th scope="col">
+                        <a asp-controller="Product" asp-action="ViewDetails" asp-route-id="@item.ProductId" class="btn btn-primary mx-2">View</a>
+                        <a asp-controller="Product" asp-action="Edit" asp-route-id="@item.ProductId" class="btn btn-warning mx-2">Edit</a>
+                        <a asp-controller="Product" asp-action="Delete" asp-route-id="@item.ProductId" class="btn btn-danger mx-2">Delete</a>
+                    </th>
+                </tr>
+            }
+        </tbody>
+    </table>

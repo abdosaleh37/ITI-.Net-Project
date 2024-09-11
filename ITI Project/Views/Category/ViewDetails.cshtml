@@ -1,0 +1,32 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@model Category
+
+@{
+}
+
+<h1>Product Details</h1>
+<table class="table text-center">
+    <thead>
+        <tr>
+            <th scope="col"></th>
+            <th scope="col"></th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <th scope="col">Category Id</th>
+            <th scope="col">@Model.CategoryId</th>
+        </tr>
+        <tr>
+            <th scope="col">Name</th>
+            <th scope="col">@Model.Name</th>
+        </tr>
+        <tr>
+            <th scope="col">Description</th>
+            <th scope="col">@Model.Description</th>
+        </tr>
+    </tbody>
+</table>
+<a asp-controller="Category" asp-action="Index" asp-route-id="@Model.CategoryId" class="btn btn-secondary mx-2">Back</a>

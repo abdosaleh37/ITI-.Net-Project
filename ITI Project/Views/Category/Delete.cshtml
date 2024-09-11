@@ -1,0 +1,34 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@model Category
+
+@{
+}
+
+<h1 style="color:red">Are You Sure You Want To Delete This Category</h1>
+<br />
+<h2 style="color:red">This Will Delete All Products In This Category</h2>
+
+<table class="table text-center">
+    <thead>
+        <tr>
+            <th scope="col"></th>
+            <th scope="col"></th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <th scope="col">Catergory Id</th>
+            <th scope="col">@Model.CategoryId</th>
+        </tr>
+        <tr>
+            <th scope="col">Name</th>
+            <th scope="col">@Model.Name</th>
+        </tr>
+    </tbody>
+</table>
+<form asp-controller="Category" asp-action="Remove" asp-route-id="@Model.CategoryId" method="post" class="d-inline">
+    <button type="submit" class="btn btn-danger mx-2">Delete</button>
+</form>
+<a asp-controller="Category" asp-action="Index" asp-route-id="@Model.CategoryId" class="btn btn-secondary mx-2">Back</a>
